@@ -1,0 +1,23 @@
+{
+    "name": "linkHound",
+    "version": "1.0.0",
+    "description": "A browser extension for extracting links",
+    "manifest_version": 3,
+    "permissions": ["scripting", "activeTab"],
+    "author": "NakuTenshi (https://github.com/nakutenshi",
+    "icons": {
+    "16": "icons/linkhound-128.png",
+    "32": "icons/linkhound-128.png",
+    "48": "icons/linkhound-128.png",
+    "128": "icons/linkhound-128.png"
+    },
+    "action":{
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "icons/linkhound-128.png",
+            "32": "icons/linkhound-128.png",
+            "48": "icons/linkhound-128.png"
+        },
+        "default_title": "linkHound"
+    }
+}

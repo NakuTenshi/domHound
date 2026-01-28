@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>linkHound</title>
+  <style>
+    :root{
+      --bg: #0f172a; /* main background */
+      --card: #0b1220; /* panels */
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --accent: #22c55e; /* hunter green */
+      --border: #1f2937;
+      --glass: rgba(255,255,255,0.02);
+    }
+
+    /* reset & box model */
+    *{box-sizing: border-box}
+    html,body{height:100%;margin:0;font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;color:var(--text);background:var(--bg)}
+
+    /* popup size (Chrome will cap it anyway) */
+    .popup{
+      height:560px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding:12px;
+    }
+
+    /* navbar */
+    #navbar{
+      position: relative;
+      display: display;
+
+      padding: 10px;
+      background:linear-gradient(180deg,var(--card), rgba(11,18,32,0.9));
+      border:1px solid var(--border);
+      border-radius:10px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+
+    }
+
+    
+    #brand{
+        font-weight:700;
+        font-size: 15px;
+        letter-spacing:0.6px;
+
+        text-align: center;
+        place-content: center;
+    }
+
+    /* button */
+    .btn{
+      background:var(--accent);
+      color: #052e16;
+      border:none;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+      box-shadow: 0 3px 8px rgba(34,197,94,0.12);
+    }
+    #Hound{
+        position: absolute;
+        right: 3px;
+        top: 4px;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn[disabled]{opacity:0.6;cursor:not-allowed}
+
+    /* status */
+    .status{display:flex;align-items:center;gap:8px}
+    .counter{background:var(--glass);padding:6px 8px;border-radius:8px;border:1px solid var(--border);font-size:13px}
+
+    /* main content */
+    .content{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      align-items:start;
+      flex:1;
+    
+    }
+
+    .card{
+      width: 480px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:8px;
+      min-height:0; /* for flexbox in Chrome popups */
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+
+    }
+
+    .card h4{margin:0;font-size:13px}
+    .card .list{
+      background:transparent;
+      border-radius:6px;
+      padding:6px;
+      border:1px dashed rgba(255,255,255,0.02);
+      overflow:auto;
+      flex:1;
+      max-height:380px;
+
+      overflow-x: hidden;
+    }
+
+    ul {list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+
+    .link-item{
+      font-size:12px;
+      padding:6px 8px;
+      border-radius:6px;
+      border:1px solid transparent;
+      background:rgba(255,255,255,0.01);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .link-item:hover{border-color:var(--border);background:rgba(255,255,255,0.02)}
+
+    .tag{display:inline-block;padding:3px 6px;border-radius:999px;font-size:11px;font-weight:700}
+    .tag.js{background:rgba(34,197,94,0.12);color:var(--accent);border:1px solid rgba(34,197,94,0.08)}
+    .tag.static{background:rgba(96,165,250,0.06);color:#7dd3fc;border:1px solid rgba(125,211,252,0.05)}
+
+    /* footer actions */
+    footer.actionbar{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        justify-content:space-between;
+    }
+    .small{font-size:12px;color:var(--muted)}
+
+    /* responsive: stack on narrow widths */
+  </style>
+</head>
+
+<body style="width: 500px;">
+  <div class="popup" role="application">
+    <div id="navbar">
+      <div id="brand">linkHound</div>
+      <button id="Hound" class="btn">Hound</button>
+    </div>
+
+    <main class="content">
+      <section class="card">
+        <h4>JavaScript files <span class="tag js" id="js-badge">0</span></h4>
+        <div class="list" id="js-list">
+          <ul id="js-items"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h4>All Links <span class="tag static" id="links-badge">0</span></h4>
+        <div class="list" id="all-list">
+          <ul id="link-items"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="actionbar">
+      <div class="small">linkHound • v1</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
