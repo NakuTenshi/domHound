@@ -17,8 +17,12 @@
     <main class="content">
 
       <section class="card">
-        <h4>Params: <span class="tag param" id="params-badge">0</span></h4>
-        <button class="copy-button param">copy</button>
+        <div class="card-head">
+          <h4>Params <span class="tag param" id="params-badge">0</span></h4>
+          <div class="notification param"><h4>copyed</h4></div>
+          <button class="copy-button param">copy</button>
+        </div>
+        
         <div class="list" id="param-list">
           <ul id="param-items"></ul>
         </div>
@@ -26,17 +30,23 @@
 
 
       <section class="card">
-        <h4>JavaScript files <span class="tag js" id="js-badge">0</span></h4>
-        <!-- <div id="notification"></div> -->
-        <button class="copy-button js">copy</button>
+        <div class="card-head">
+          <h4>JS files <span class="tag js" id="js-badge">0</span></h4>
+          <div class="notification js"><h4>copyed</h4></div>
+          <button class="copy-button js">copy</button>
+        </div>
+        
         <div class="list" id="js-list">
           <ul id="js-items"></ul>
         </div>
       </section>
 
       <section class="card">
-        <h4>All Links <span class="tag static" id="links-badge">0</span></h4>
-        <button class="copy-button link">copy</button>
+        <div class="card-head">
+          <h4>All Links <span class="tag static" id="links-badge">0</span></h4>
+          <div class="notification links"><h4>copyed</h4></div>
+          <button class="copy-button link">copy</button>
+        </div>
 
         <div class="list" id="all-list">
           <ul id="link-items"></ul>
@@ -45,7 +55,7 @@
     </main>
 
     <footer class="actionbar">
-      <div class="small">domHound • v1.1</div>
+      <div class="small">domHound • v1.1.1</div>
     </footer>
   </div>
 

@@ -109,10 +109,46 @@ function extractLinks(){
 
 }
 
+function showNotification(elem, stayMs = 800) {
+  if (elem._stayTimer) {
+    clearTimeout(elem._stayTimer);
+    elem._stayTimer = null;
+  }
+  if (elem._hiddenTimer) {
+    clearTimeout(elem._hiddenTimer);
+    elem._hiddenTimer = null;
+  }
+
+  const cs = getComputedStyle(elem);
+  let trans = cs.getPropertyValue('--transition-ms').trim() || '250ms';
+  let transitionMs = parseInt(trans.replace('ms','')) || 250;
+
+  elem.style.visibility = 'visible';
+  void elem.offsetWidth;
+
+  elem.classList.add('show');
+  elem._stayTimer = setTimeout(() => {
+    elem.classList.remove('show');
+
+    elem._hiddenTimer = setTimeout(() => {
+      elem.style.visibility = 'hidden';
+      elem._hiddenTimer = null;
+    }, transitionMs);
+
+    elem._stayTimer = null;
+  }, stayMs);
+}
+
+
+
+
 document.querySelectorAll(".copy-button").forEach(function(btn) {
   btn.addEventListener("click", function() {
+    let notificationELM = btn.parentElement.querySelector(".notification")  
+    showNotification(notificationELM)
 
-    let keywords = this.parentElement
+
+    let keywords = this.parentElement.parentElement
       .querySelector(".list")
       .textContent
       .trim()
