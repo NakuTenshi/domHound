@@ -1,7 +1,7 @@
 # LinkHound
 
 <div align="center">
-  <img src="icons/domHound.png" alt="domHound Logo" width="150" height="200"/>
+  <img src="icons/domHound.png" alt="domHound Logo" width="200" height="250"/>
   <p>linkHound: A Chrome extension that extracts, filters, and exports useful links from web pages for fast recon.</p>
 </div>
 
