@@ -7,15 +7,15 @@
 
 ---
 
-domHound is a lightweight Chrome extension for security researchers and recon-hunters that extracts and collects links from web pages with speed and precision. It filters out noise (non-URL strings), captures useful link contexts, supports saving and exporting, and features a compact hacker-style UI with a custom icon.
+domHound is a lightweight Chrome extension for security researchers and recon-hunters that extracts and collects links and parameters from web pages with speed and precision. It filters out noise (non-URL strings)
 
-This repository contains the domHound extension source — a frontend-focused Chromium extension designed to run locally in your browser (manifest v3 compatible).
+>This repository contains the domHound extension source — a frontend-focused Chromium extension designed to run locally in your browser (manifest v3 compatible).
 
----
+
 
 ## Key features
 
-* Fast link extraction from the current tab and selected page elements.
+* Fast extraction from the current tab and selected page elements.
 * Filters out non-URL strings and deduplicates results automatically.
 * Lightweight popup UI and an options panel for custom filters and presets.
 
